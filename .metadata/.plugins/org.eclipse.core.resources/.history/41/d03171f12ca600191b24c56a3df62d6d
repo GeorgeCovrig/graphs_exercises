@@ -1,0 +1,13 @@
+package graphs;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//graph construction 
+		Node node2 = new Node("1-Mirel");
+		new Node[] {new Node}
+		Node node = new Node("0-Ionel");
+		
+	}
+
+}

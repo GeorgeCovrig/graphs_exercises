@@ -1,0 +1,46 @@
+package graphs;
+
+import java.util.HashMap;
+
+public class Graph {
+
+	private Node firstNode;
+	private HashMap<String, Boolean> hashVisitedNodes;
+
+	public Graph(Node node0) {
+		firstNode = node0;
+	}
+
+	public void depthFirstSearch() {
+		hashVisitedNodes = new HashMap<String, Boolean>();
+		traverseGraphDepthFirst(firstNode);
+
+	}
+
+	private void traverseGraphDepthFirst(Node node) {
+		// get the node that we want
+		// show value
+		System.out.println(node.getName());
+		hashVisitedNodes.put(node.getName(), true);
+		// with a for traverse every node, and we take care of the fact that a node could've
+		// been visited before
+		for (Node n : node.getNeighbors()) {
+			if (hashVisitedNodes.get(n.getName()) == null) {
+				traverseGraphDepthFirst(n);
+			}
+		}
+	}
+
+	public Node getFirstNode() {
+		return firstNode;
+	}
+
+	public void setFirstNode(Node firstNode) {
+		this.firstNode = firstNode;
+	}
+
+	public void breadthFirstSearch() {
+		// TODO Auto-generated method stub
+		
+	}
+}

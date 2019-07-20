@@ -1,0 +1,10 @@
+package graphs;
+
+public class Graph {
+	
+	private Node firstNode;
+	
+	public void depthFirstSearch() {
+		
+	}
+}

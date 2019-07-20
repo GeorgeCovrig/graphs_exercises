@@ -1,0 +1,35 @@
+package graphs;
+
+public class Graph {
+
+	private Node firstNode;
+
+	public Graph(Node node0) {
+		firstNode = node0;
+	}
+
+	public void depthFirstSearch() {
+		traverseGraphDepthFirst(firstNode);
+
+	}
+
+	private void traverseGraphDepthFirst(Node node) {
+		//get the node that we want
+		
+		//show value
+		System.out.println(node.getName());
+		//with a for traverse every node
+		for(Node n: node.getNeighbours()) {
+			traverseGraphDepthFirst(n);
+		}
+		//call traverseFunction again
+	}
+
+	public Node getFirstNode() {
+		return firstNode;
+	}
+
+	public void setFirstNode(Node firstNode) {
+		this.firstNode = firstNode;
+	}
+}

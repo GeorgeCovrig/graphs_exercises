@@ -1,0 +1,18 @@
+package graphs;
+
+public class Graph {
+	
+	private Node firstNode;
+	
+	public void depthFirstSearch() {
+		
+	}
+
+	public Node getFirstNode() {
+		return firstNode;
+	}
+
+	public void setFirstNode(Node firstNode) {
+		this.firstNode = firstNode;
+	}
+}

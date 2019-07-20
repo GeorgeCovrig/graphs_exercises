@@ -1,0 +1,28 @@
+package graphs;
+
+public class Graph {
+
+	private Node firstNode;
+
+	public Graph(Node node0) {
+		firstNode = node0;
+	}
+
+	public void depthFirstSearch() {
+		traverseGraphDepthFirst(firstNode);
+
+	}
+
+	private void traverseGraphDepthFirst(Node firstNode2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Node getFirstNode() {
+		return firstNode;
+	}
+
+	public void setFirstNode(Node firstNode) {
+		this.firstNode = firstNode;
+	}
+}

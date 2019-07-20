@@ -1,0 +1,30 @@
+package graphs;
+
+public class Node {
+	
+	public String name;
+	public Node[] neighbours;
+	
+	public Node(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Node[] getNeighbours() {
+		return neighbours;
+	}
+	
+	public void setNeighbours(Node[] neighbours) {
+		this.neighbours = neighbours;
+	}
+
+}
+

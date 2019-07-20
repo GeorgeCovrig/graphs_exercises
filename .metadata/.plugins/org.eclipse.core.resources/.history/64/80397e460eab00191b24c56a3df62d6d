@@ -1,0 +1,113 @@
+package graphs;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Graph {
+
+	private Node firstNode;
+	private HashMap<String, Boolean> hashVisitedNodes;
+	Queue<Node> queueNodes;
+	
+	public Graph(Node node0) {
+		firstNode = node0;
+	}
+
+	public void depthFirstSearch() {
+		hashVisitedNodes = new HashMap<String, Boolean>();
+		traverseGraphDepthFirst(firstNode);
+
+	}
+
+	private void traverseGraphDepthFirst(Node node) {
+		// get the node that we want
+		// show value
+		System.out.println(node.getName());
+		hashVisitedNodes.put(node.getName(), true);
+		// with a for traverse every node, and we take care of the fact that a node could've
+		// been visited before
+		for (Node n : node.getNeighbors()) {
+			if (hashVisitedNodes.get(n.getName()) == null) {
+				traverseGraphDepthFirst(n);
+			}
+		}
+	}
+
+	public Node getFirstNode() {
+		return firstNode;
+	}
+
+	public void setFirstNode(Node firstNode) {
+		this.firstNode = firstNode;
+	}
+
+	public void breadthFirstSearch() {
+		queueNodes = new LinkedList<Node>();
+		hashVisitedNodes = new HashMap<String, Boolean>();
+		hashVisitedNodes.put(firstNode.getName(),true);
+		traverseGraph(firstNode);
+		
+	}
+
+	private void traverseGraph(Node node) {
+		System.out.println(node.getName());
+		for(Node n: node.getNeighbors()) {
+			if(!hashVisitedNodes.containsKey(n.getName())) {
+				hashVisitedNodes.put(n.getName(), true);
+				queueNodes.add(n);
+			}
+		}
+		while(!queueNodes.isEmpty()) {
+			traverseGraph(queueNodes.remove());
+		}
+	}
+
+	public boolean thereIsAPathBetweenNodes(String firstNode, String secondNode) {
+		Node startNode = findFirstNode(this.firstNode,firstNode);
+		if(startNode != null) {
+			return findPathBetweenNodes(startNode, secondNode);
+		}
+		return false;
+	}
+
+	private boolean findPathBetweenNodes(Node node, String secondNode) {
+		if(node.getName().equals(firstNode)) {
+			return true;
+		}
+		hashVisitedNodes.put(node.getName(), true);
+		for(Node n: node.getNeighbors()) {
+			if(!hashVisitedNodes.containsKey(n.getName()))
+					return findPathBetweenNodes(n, secondNode);
+		
+		}
+		return false;
+	}
+
+	private Node findFirstNode(Node node, String firstNode) {
+		if(node.getName().equals(firstNode)) {
+			return node;
+		}
+		hashVisitedNodes.put(node.getName(), true);
+		for(Node n: node.getNeighbors()) {
+			if(!hashVisitedNodes.containsKey(n.getName()))
+					return findFirstNode(n, firstNode);
+		
+		}
+		return null;
+		
+	}
+	
+	public void resetHash() {
+		hashVisitedNodes = new HashMap<String, Boolean>();
+	}
+	
+	public void depthFirstTranversal(Node node) {
+		System.out.println(node.getName());
+		hashVisitedNodes.put(node.getName(), true);
+		for(Node n: node.getNeighbors()) {
+			if(!hashVisitedNodes.containsKey(n.getName()))
+					depthFirstTranversal(n);
+		}
+	}
+}

@@ -1,0 +1,17 @@
+package graphs;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//graph construction 
+		Node node2 = new Node("1-Mirel");
+		Node node3 = new Node("2-Viorel");
+		Node node4 = new Node("3-Vasile");
+		Node node5 = new Node("4-Daniel");
+		Node node6 = new Node("5-Viorica");
+		new Node[] {new Node}
+		Node node = new Node("0-Ionel");
+		
+	}
+
+}
